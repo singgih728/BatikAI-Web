@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BatikAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">
+            BatikAI - SGH Rohniadi
+        </a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+            class="collapse navbar-collapse"
+            id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">
+                        Beranda
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/gallery">
+                
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">
+                        Tentang
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- KIRI -->
+            <div class="col-lg-6">
+                <span class="badge bg-primary me-2 mb-3">
+                    AI Powered
+                </span>
+                <span class="badge bg-success me-2 mb-3">
+                    CNN Transfer Learning
+                </span>
+                <span class="badge bg-warning text-dark me-2 mb-3">
+                    20 Motif Batik
+                </span>
+                <h1 class="display-5 fw-bold">
+                    Klasifikasi Motif Batik Indonesia
+                </h1>
+                <p class="lead mt-3">
+                    Unggah gambar batik dan biarkan AI
+                    mengenali motif batik secara otomatis menggunakan
+                    metode Transfer Learning
+                </p>
+                <a href="#upload" class="btn btn-primary btn-lg mt-3">
+                    Mulai Prediksi
+                </a>
+            </div>
+            <!-- KANAN -->
+            <div class="col-lg-6 text-center">
+                <img
+                src="{{ url_for('static', filename='images/hero.png') }}"
+                style="width:200px; height:auto; border:2px solid rgb(0, 0, 0);">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="upload"></section>
+<div class="container py-5">
+<div class="row justify-content-center">
+<div class="col-lg-8">
+<div class="card hero-card shadow-lg">
+<div class="card-body p-5">
+<h1 class="text-center title">
+BatikAI Predict
+</h1>
+<p class="text-center subtitle mb-5">
+Klasifikasi Motif Batik Indonesia
+</p>
+<form
+action="/predict"
+method="POST"
+enctype="multipart/form-data">
+<label class="upload-box">
+    <div id="uploadContent" class="upload-text">
+        <h1>📷</h1>
+        <h4>Klik untuk memilih gambar</h4>
+        <p>JPG • PNG • JPEG</p>
+    </div>
+    <img id="preview">
+    <input
+        type="file"
+        id="imageInput"
+        name="image"
+        hidden
+        required>
+</label>
+<br>
+<img id="preview">
+<br><br>
+<div class="d-grid">
+<button
+class="btn btn-primary btn-predict">
+Prediksi Sekarang
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+const input = document.getElementById("imageInput");
+const preview = document.getElementById("preview");
+const uploadContent = document.getElementById("uploadContent");
+input.onchange = function(){
+    const file = input.files[0];
+    if(file){
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+        uploadContent.style.display = "none";
+    }
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
