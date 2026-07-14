@@ -91,7 +91,7 @@ Dataset yang digunakan merupakan dataset citra motif batik Indonesia.
 
 **Link Dataset Kaggle:**
 
-[https://www.kaggle.com/datasets/stevennugroho/batik-dataset(https://www.kaggle.com/datasets/hendryhb/batik-nusantara-batik-indonesia-dataset?resource=download)
+https://www.kaggle.com/datasets/hendryhb/batik-nusantara-batik-indonesia-dataset?resource=download
 
 > **Catatan:** Apabila pada proses pelatihan digunakan dataset yang telah dimodifikasi (misalnya penambahan folder train/test atau pengurangan kelas), maka struktur dataset pada proyek ini merupakan hasil pengolahan dari dataset asli tersebut.
 
